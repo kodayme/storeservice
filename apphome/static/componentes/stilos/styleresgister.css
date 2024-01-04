@@ -1,0 +1,28 @@
+body{
+    background-image: url("../img/peakpx (1).jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#login{
+
+    margin-right: 550px;
+}
+
+#register{
+    width: 50%;
+    margin: auto;
+
+}
+
+#inicio{
+    width: 50%;
+
+    margin: auto;
+    margin-left: 550px;
+    margin-top: -200px;
+
+}
+

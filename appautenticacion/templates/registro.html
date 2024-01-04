@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+        {% load static %}
+    <link href="{% static '../static/componentes/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '../static/componentes/stilos/styleresgister.css' %}" rel="stylesheet">
+
+    <script src="{% static '../static/componentes/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '../static/componentes/vendor/jquery/animation.js' %}"></script>
+    <script src="{% static '../static/componentes/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '../static/componentes/vendor/jquery/easing plugin.js' %}"></script>
+
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+{% block content %}
+<div id="register">
+
+<form method="post" action="" style="color: #e8d308">
+
+    {% csrf_token %}
+    <table>{{formulario}}</table>
+        {% if messages %}
+            {% for item in messages %}
+    <h1 style="color: red">{{item}}</h1>
+            {% endfor %}
+        {% endif %}
+    <button type="submit" class="btn btn-success">Registrar</button>
+    <button type="reset" class="btn btn-danger">Resetear</button>
+
+</form>
+
+</div>
+
+{% endblock %}
+</body>
+</html>

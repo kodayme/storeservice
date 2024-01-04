@@ -1,0 +1,84 @@
+<table class="table table-bordered" style="color: #e0c033">
+
+    <thead>
+
+    <tr>
+
+        <th colspan="3" class="text-center">
+
+            Carro compras
+
+        </th>
+
+
+    </tr>
+
+    <tr>
+
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Suma</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% if request.session.carro.items %}
+
+
+    {% for key, value in request.session.carro.items %}
+
+        <tr class="text-center">
+
+            <td>{{value.nombre}}</td>
+            <td>{{value.cantidad}}</td>
+            <td>
+
+                <a href="{% url 'carro:agrega' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                <a href="{% url 'carro:resta' value.producto_id %}" class="btn btn-sm btn-success">-</a><br>
+
+                {{value.precio}}$
+
+<!--OJO EL NOMBRE 'producto' PROVIENE DE LA APLICACIÓN CARRO (appcart) Y DE LA VISTA EN DONDE SE LE PASA POR PARÁMETROS LOS VALORES ID-->
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    {% else %}
+
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-danger text-center">
+                    agrega un producto
+                </div>
+            </td>
+        </tr>
+    {% endif %}
+
+
+    </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    Total:{{importe_total_carro}}
+                </td>
+            </tr>
+            {% if request.session.carro.items %}
+            <tr>
+
+                <td colspan="3" style="text-align: center">
+
+                    <a href="{% url 'Pedidos' %}" class="btn btn-success">Comprar</a>
+
+                </td>
+
+            </tr>
+            {% endif %}
+        </tfoot>
+
+</table>

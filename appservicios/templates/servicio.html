@@ -1,0 +1,41 @@
+{% extends "C:\Users\YOVANI\Documents\django tests\depliegue\apphome\templates\base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+<!--video 38-->
+
+
+<div class="row">
+
+    {% for item in servis %}
+
+    <div class="col-md-3">
+
+<div class="card" style="width:100%; background-color: #020302" >
+  <img src="{{item.imagen.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center" id="tema_servicio">{{item.nombre}}</h5>
+    <p class="card-text text-center">{{item.contenido}} </p>
+                                            <!--CAMPO DE AUTENTICACIÓN-->
+
+      {% if user.is_authenticated %}
+    <p class="text-center"><a href="{% url 'contact' %}" class="btn btn-sm btn-success ">Solicitar</a></p>
+      {% else %}
+        <p class="alert alert-info text-center">para poder comprar o consultar sobre este artículo debes registrarte</p>
+      {% endif %}
+<!--===================================================================================================================-->
+  </div>
+</div>
+
+
+    </div>
+
+    {% endfor %}
+
+</div>
+</div>
+{% endblock %}

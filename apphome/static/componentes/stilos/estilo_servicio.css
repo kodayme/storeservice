@@ -1,0 +1,27 @@
+body{
+
+    background-image: url("../img/3D, Windows, Logo.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+
+}
+
+h1{
+    text-transform: uppercase;
+}
+#tema{
+    text-align: center;
+}
+
+ul{
+    margin: auto;
+
+}
+
+#tema_servicio,p{
+
+    color: #ffd500;
+
+}

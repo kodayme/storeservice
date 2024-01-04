@@ -1,0 +1,45 @@
+{% extends "C:\Users\YOVANI\Documents\django tests\depliegue\apphome\templates\bases.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% for item in los_contenidos %}
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro" style="background-color: #e0c033">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{item.imagen.url}}" alt="" style="width: 50%">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color: #1e4199">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper" >{{item.titulo}}</span>
+
+          </h2>
+          <p style="color:#ccc124"> {{item.contenido}}
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+    {% endfor %}
+
+<section>
+    <div style="width: 75%; margin: auto; text-align: center; color: black">
+
+         <p class="categorias">categorias:</p>
+        {% for item in los_contenidos %}
+        {% for item2 in item.categoria.all %}
+
+            <button class="btn btn-success text-center"><a href="{% url 'categorias' item2.id %}" class="categorias">{{item2.nombre}}</a></button>
+
+        {% endfor %}
+        {% endfor %}
+
+    </div>
+</section>
+
+
+{% endblock %}

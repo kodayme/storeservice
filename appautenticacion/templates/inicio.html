@@ -1,0 +1,25 @@
+{% extends "C:\Users\YOVANI\Documents\django tests\depliegue\appautenticacion\templates\registro.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="inicio">
+
+<form method="post" action="" style="color: #e8d308">
+
+    {% csrf_token %}
+    <table>{{fomulario_inicio}}</table>
+        {% if messages %}
+            {% for item in messages %}
+    <span class="alert alert-danger" style="color: red">{{item}}</span>
+            {% endfor %}
+        {% endif %}
+    <button type="submit" class="btn btn-success">Iniciar sesion</button>
+    <button type="reset" class="btn btn-danger">Resetear campos</button>
+
+</form>
+
+</div>
+
+{% endblock %}

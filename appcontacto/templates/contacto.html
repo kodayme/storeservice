@@ -1,0 +1,67 @@
+
+<html lang="en">
+<head>
+        {% load static %}
+    <link href="{% static '../static/componentes/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '../static/componentes/stilos/contactsyles.css' %}" rel="stylesheet">
+
+    <script src="{% static '../static/componentes/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '../static/componentes/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+        <h1 id="tema">SECCIÓN DE PREGUNTAS</h1>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+                  <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'Home' %}"><span class="btn btn-danger bg-faded">Inicio</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'Contenidos' %}"><span class="btn btn-success bg-dark">Contenido</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'servicios' %}"><span class="btn btn-success ">Servicios</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}"><span class="btn btn-danger bg-faded">Contacto</span></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'Store' %}"><span class="btn btn-success bg-transparent">Tienda</span></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</head>
+<body>
+
+    <div>
+
+        {% if "mensaje" in request.GET %}
+        <p class="btn btn-success" style="float: right">¡👍 su mensaje se ha enviado correctamente!</p>
+        {% endif %}
+
+
+        <form action="" method="POST" style="text-align: center">
+            {% csrf_token %}
+
+            <table>{{contacto}}</table>
+
+            <input type="submit" value="ENVIAR">
+            <input type="reset" value="RESETEAR">
+
+        </form>
+
+    </div>
+
+</body>
+</html>
